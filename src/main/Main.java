@@ -22,13 +22,17 @@ public class Main {
         List<Classe> classes = dao.list();
         for (int i = 0; i < classes.size(); i++) {
             System.out.println(classes.get(i));
-        }*/
-        int result = dao.delete(10);
+        }
+        int result = dao.delete(3);
         if (result == 1) {
             System.out.println("success");
         }
         else {
             System.out.println("fail");
-        }
+        }*/
+        Classe classe = dao.get(4);
+        classe.setNom("L3RT");
+        classe.setEffectif(2);
+        dao.update(classe);
     }
 }
