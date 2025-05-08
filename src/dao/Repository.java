@@ -1,7 +1,5 @@
 package dao;
 
-import entity.Etudiant;
-
 import java.util.List;
 
 public interface Repository<T> {

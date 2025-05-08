@@ -15,6 +15,7 @@ public class Etudiant {
 
     public Etudiant() {
     }
+
     public Etudiant(String nom, String prenom, double moyenne, Classe classe) {
         this.nom = nom;
         this.prenom = prenom;
@@ -22,12 +23,15 @@ public class Etudiant {
         this.classe = classe;
         this.matricule = generateMatricule();
     }
+
     public String getNom() {
         return nom;
     }
+
     public String getPrenom() {
         return prenom;
     }
+
     public String getMatricule() {
         return matricule;
     }
@@ -39,7 +43,6 @@ public class Etudiant {
     public Classe getClasse() {
         return classe;
     }
-
 
     public void setNom(String nom) {
         this.nom = nom;
@@ -53,11 +56,19 @@ public class Etudiant {
         this.moyenne = moyenne;
     }
 
+    public void setMatricule(String matricule) {
+        this.matricule = matricule;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
     public void setClasse(Classe classe) {
         this.classe = classe;
     }
 
-    private String generateMatricule() {
+    public String generateMatricule() {
         int year = Year.now().getValue();
         int mois = LocalDate.now().getMonth().getValue();
         int day = LocalDate.now().getDayOfMonth();
@@ -65,13 +76,18 @@ public class Etudiant {
         int minute = LocalDateTime.now().getMinute();
         int second = LocalDateTime.now().getSecond();
 
-        return "ET@" +
-              year + mois + day + heure + minute + second + classe.getNom() + "#" ;
+        return "ET@" + year + mois + day + heure + minute + second + classe.getNom() + "#";
     }
+
     @Override
     public String toString() {
-        return
-                "matricule=" + matricule
-                ;
+        return "Etudiant{" +
+                "id=" + id +
+                ", matricule='" + matricule + '\'' +
+                ", nom='" + nom + '\'' +
+                ", prenom='" + prenom + '\'' +
+                ", moyenne=" + moyenne +
+                ", classe=" + classe.getNom() +
+                '}';
     }
 }
